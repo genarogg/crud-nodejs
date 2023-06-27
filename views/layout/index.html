@@ -1,0 +1,52 @@
+<table class="table table-hover">
+  <thead>
+    <th scope="col">Username</th>
+    <th scope="col">Email</th>
+    <th scope="col">Telefone</th>
+    <th scope="col">Cidade</th>
+    <th scope="col">Estado</th>
+    <th scope="col">Criação</th>
+    <th scope="col">Atualização</th>
+    <th scope="col">Ações</th>
+  </thead>
+  <tbody>
+    <% users.forEach(function(user) { %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.telefone %></td>
+      <td><%= user.cidade %></td>
+      <td><%= user.estado %></td>
+      <td>
+        <%= user.created_at.toLocaleDateString() %> <%=
+        user.created_at.toLocaleTimeString() %>
+      </td>
+      <td>
+        <%= user.updated_at.toLocaleDateString() %> <%=
+        user.updated_at.toLocaleTimeString() %>
+      </td>
+      <td>
+        <div class="row">
+          <div class="row">
+            <form action="./edit" method="GET">
+              <input type="hidden" name="id" value="<%= user.id %>" />
+              <button type="submit" class="btn edit-btn">
+                <i class="bi bi-pencil"></i>
+              </button>
+            </form>
+          </div>
+          <div class="row"></div>
+          <div class="row">
+            <form action="./delete-user" method="POST">
+              <input type="hidden" name="id" value="<%= user.id %>" />
+              <button type="submit" class="btn delete-btn">
+                <i class="bi bi-trash"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
