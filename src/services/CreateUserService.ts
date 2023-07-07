@@ -10,8 +10,13 @@ interface IUser {
 }
 
 class CreateUserService {
+<<<<<<< HEAD
   async create({ username, email, telefono, ciudad, estado }: IUser) {
     if (!username || !email || !telefono || !ciudad || !estado) {
+=======
+  async create({ username, email, telefone, cidade, estado }: IUser) {
+    if (!username || !email || !telefone || !cidade || !estado) {
+>>>>>>> head
       throw new Error("Por favor rellena todos los campos");
     }
 
